@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
  
 GPIO.cleanup() #cleaning up in case GPIOS have been preactivated
 
-# Specs of BYJ48 Stepper Motor: Gear ratio of 64 , and Stride Angle 5.625°  so this motor has a 4096 Steps 
+# Specs of BYJ48 Stepper Motor: Gear ratio of 64 , and Stride Angle 5.625 deg  so this motor has a 4096 Steps 
  
 # Use BCM GPIO references
 # instead of physical pin numbers
@@ -25,7 +25,11 @@ time.sleep(0.5)
 # Define some settings
 StepCounter = 0
 WaitTime = 0.0015
- 
+
+# Define number of full rotations
+n_rotations = 4
+loop_length = int(n_rotations*4096)
+
 # Define simple sequence
 StepCount1 = 4
 Seq1 = []
@@ -48,7 +52,7 @@ Seq2[4] = [0,0,1,0]
 Seq2[5] = [0,0,1,1]
 Seq2[6] = [0,0,0,1]
 Seq2[7] = [1,0,0,1]
- 
+
 #Full torque
 StepCount3 = 4
 Seq3 = []
@@ -57,14 +61,19 @@ Seq3[0] = [0,0,1,1]
 Seq3[1] = [1,0,0,1]
 Seq3[2] = [1,1,0,0]
 Seq3[3] = [0,1,1,0]
- 
+
+# Custom Seq4
+StepCount4 = 8
+Seq4 = []
+Seq4[0] = [0,1,0,0]
+
 # set
 Seq = Seq2
 StepCount = StepCount2
  
 # Start main loop
 try:
-  while 1==1:
+  for i in range (1, loop_length):
     for pin in range(0, 4):
       xpin = StepPins[pin]
       if Seq[StepCounter][pin]!=0:
