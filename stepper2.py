@@ -27,7 +27,7 @@ StepCounter = 0
 WaitTime = 0.0015
 
 # Define number of full rotations
-n_rotations = 4
+n_rotations = 1
 loop_length = int(n_rotations*4096)
 
 # Define simple sequence
@@ -64,6 +64,7 @@ Seq3[2] = [1,1,0,0]
 Seq3[3] = [0,1,1,0]
 
 # Custom Seq4
+# DOESNT WORK
 StepCount4 = 8
 Seq4 = []
 Seq4 = range(0, StepCount4)
