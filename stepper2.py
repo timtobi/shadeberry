@@ -56,7 +56,8 @@ Seq2[7] = [1,0,0,1]
 #Full torque
 StepCount3 = 4
 Seq3 = []
-Seq3 = [3,2,1,0]
+#Seq3 = [3,2,1,0]
+Seq3 = range(0, StepCount3)
 Seq3[0] = [0,0,1,1]
 Seq3[1] = [1,0,0,1]
 Seq3[2] = [1,1,0,0]
@@ -65,7 +66,15 @@ Seq3[3] = [0,1,1,0]
 # Custom Seq4
 StepCount4 = 8
 Seq4 = []
+Seq4 = range(0, StepCount4)
 Seq4[0] = [0,1,0,0]
+Seq4[1] = [0,1,0,1]
+Seq4[2] = [0,0,0,1]
+Seq4[3] = [1,0,0,1]
+Seq4[4] = [1,0,0,0]
+Seq4[5] = [1,0,1,0]
+Seq4[6] = [0,0,1,0]
+Seq4[7] = [0,1,1,0]
 
 # set
 Seq = Seq2
